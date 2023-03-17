@@ -17,7 +17,7 @@
                 <p class="card-text">{{book.book.quantity}}</p>
                 <button onclick = "alterBookQuantity({{book.book.id}}, {{book.book.quantity}}, 'A') ">Return</button>
                 <button onclick = "alterBookQuantity({{book.book.id}}, {{book.book.quantity}}, 'S') ">Checkout</button>
-                <button onclick = "deleteABook({{book.book.id}})">delete</button>
+                <button onclick = "deleteABook({{book.book.id}})">Delete</button>
 
             {% else %}
 
@@ -26,7 +26,7 @@
                 <p class="card-text">{{book.quantity}}</p>
                 <button onclick = "alterBookQuantity({{book.id}}, {{book.quantity}}, 'A') ">Return</button>
                 <button onclick = "alterBookQuantity({{book.id}}, {{book.quantity}}, 'S') ">Checkout</button>
-                <button onclick = "deleteABook({{book.id}})">delete</button>
+                <button onclick = "deleteABook({{book.id}})">Delete</button>
 
             {% endif %}
             
