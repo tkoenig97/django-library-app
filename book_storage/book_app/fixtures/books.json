@@ -1,0 +1,52 @@
+[
+    {
+        "model": "book_app.book", 
+        "pk": 1, 
+        "fields": {
+            "title": "Code Better", 
+            "quantity": 5, 
+            "genre": 1,
+            "authors": [1, 3]
+        }
+    }, 
+    {
+        "model": "book_app.book", 
+        "pk": 2, 
+        "fields": {
+            "title": "POODR", 
+            "quantity": 5, 
+            "genre": 1,
+            "authors": [2, 4]
+        }
+    }, 
+    {
+        "model": "book_app.book", 
+        "pk": 3, 
+        "fields": {
+            "title": "Gates of Fire", 
+            "quantity": 4, 
+            "genre": 3,
+            "authors": [4, 5]
+        }
+    }, 
+    {
+        "model": "book_app.book", 
+        "pk": 4, 
+        "fields": {
+            "title": "Scary Stories",
+            "quantity": 5, 
+            "genre": 2,
+            "authors": [3, 4]
+        }
+    },
+    {
+        "model": "book_app.book", 
+        "pk": 5, 
+        "fields": {
+            "title": "Bad Variable Naming", 
+            "quantity": 5, 
+            "genre": 2,
+            "authors": [3, 4]
+        }
+    }
+]

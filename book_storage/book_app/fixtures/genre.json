@@ -1,0 +1,23 @@
+[
+    {
+        "model": "book_app.Genre",
+        "pk": 1, 
+        "fields": {
+            "title": "Academic" 
+        }
+    }, 
+    {
+        "model": "book_app.Genre",
+        "pk": 2, 
+        "fields": {
+            "title": "Horror" 
+        }
+    }, 
+    {
+        "model": "book_app.Genre",
+        "pk": 3, 
+        "fields": {
+            "title": "History" 
+        }
+    }
+]
