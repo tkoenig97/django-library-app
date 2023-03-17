@@ -1,0 +1,23 @@
+{% extends 'pages/layout.html' %}
+
+{% block content %}
+    <h2>Books</h2>
+
+{% for book in  books%}
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">{{book.book.title}}</h4>
+          {% for author in book.authors  %}
+            <h5><a href="/author/{{author.id}}/">{{author.first_name}} {{author.last_name}}</a></h5>
+          {% endfor %}
+            <p class="card-text">{{book.book.genre.title}}</p>
+            <p class="card-text">{{book.book.quantity}}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+
+{% endfor %}
+    
+{% endblock content %}
