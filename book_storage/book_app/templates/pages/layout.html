@@ -14,27 +14,8 @@
     </head>
     <body>
         <h1>BOOK STORAGE</h1>
-        <form method = 'POST' action = '/'>
-            {% csrf_token %}
-            <input name ='title' />
-            <select name = 'genre'>
-                <option value = "Academic">Academic</option>
-                <option value = "Horror">Horror</option>
-                <option value = "History">History</option>
-            </select>
-            <fieldset name= 'authors'>
-                <label for = 'Francisco'> Francisco</label>
-                <input type="checkbox" value = "Francisco" name = 'Francisco' />
-
-                <label for = "Adam">Adam</label>
-                <input type="checkbox" value = "Adam" name = "Adam"/>
-
-                <label for = "Skyler">Skyler </label>
-                <input type="checkbox" value = "Skyler" name = "Skyler" />
-            </fieldset>
-            <input type = 'number' max = 5 min = 1 name = 'quantity' />
-            <input type = 'submit' />
-        </form>
+        <a href = '/new_book/'>New Book </a>
+        
         {% block content %}
         {% endblock content %}
         
