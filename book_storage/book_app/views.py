@@ -14,7 +14,13 @@ def home(request):
     return render(request, 'pages/books.html', {"books":book_info, 'nested':True})
 
 def books_by_genre(request, id):
-    pass
+    genre = Genre.objects.get(id = id)
+    books = Book.objects.all().filter(genre = genre)
+    data = {
+        'books': books,
+        'nested': False
+    }
+    return render(request, 'pages/books.html', data)
 
 def books_by_author(request, id):
     author = Author.objects.get(id = id)
