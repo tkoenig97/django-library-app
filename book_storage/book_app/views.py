@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -6,8 +6,6 @@ import json
 # Create your views here.
 
 def home(request):
-    if request.method == 'POST':
-        print(request.POST)
     book_info = []
     books = Book.objects.prefetch_related('authors')
     for book in books:
@@ -64,3 +62,15 @@ def book(request, id):
     except Exception as e:
         print(e)
         return JsonResponse({'success': False})
+    
+def new_book(request):
+    if request.method == 'POST':
+        print(request.POST)
+        body = request.POST
+        new_book = Book.objects.create(title = body['title'], quantity = body['quantity'], genre = Genre.objects.all().get(title = body['genre']))
+        valid_authors =[author['first_name'] for author in list(Author.objects.all().values())]
+        for author in valid_authors:
+            new_book.authors.add(Author.objects.all().get(first_name = author)) if author in body else None
+        new_book.save()
+        return redirect('home')
+    return render(request, 'pages/book.html')
