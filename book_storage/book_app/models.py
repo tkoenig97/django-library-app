@@ -15,4 +15,4 @@ class Book(models.Model):
     title = models.CharField(max_length=250)
     quantity = models.IntegerField(default=1)
     genre = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True)
-    authors = models.ForeignKey(Author, related_name="book")
+    authors = models.ManyToManyField(Author, related_name="book")
