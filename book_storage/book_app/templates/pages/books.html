@@ -7,12 +7,23 @@
     
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h4 class="card-title">{{book.book.title}}</h4>
-          {% for author in book.authors  %}
-            <h5><a href="/author/{{author.id}}/">{{author.first_name}} {{author.last_name}}</a></h5>
-          {% endfor %}
-            <p class="card-text">{{book.book.genre.title}}</p>
-            <p class="card-text">{{book.book.quantity}}</p>
+            {% if nested %}
+
+                <h4 class="card-title">{{book.book.title}}</h4>
+                {% for author in book.authors  %}
+                    <h5><a href="/author/{{author.id}}/">{{author.first_name}} {{author.last_name}}</a></h5>
+                {% endfor %}
+                <p class="card-text">{{book.book.genre.title}}</p>
+                <p class="card-text">{{book.book.quantity}}</p>
+
+            {% else %}
+
+                <h4 class="card-title">{{book.title}}</h4>
+                <p class="card-text">{{book.genre.title}}</p>
+                <p class="card-text">{{book.quantity}}</p>
+
+            {% endif %}
+            
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
