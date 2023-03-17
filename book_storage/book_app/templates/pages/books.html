@@ -9,23 +9,28 @@
         <div class="card-body">
             {% if nested %}
 
-                <h4 class="card-title">{{book.book.title}}</h4>
+                <h4 class="card-title"><a href= "/book/{{book.book.id}}/">{{book.book.title}}</a></h4>
                 {% for author in book.authors  %}
                     <h5><a href="/author/{{author.id}}/">{{author.first_name}} {{author.last_name}}</a></h5>
                 {% endfor %}
-                <p class="card-text"><a href="/genre/{{book.book.genre.id}}/{{book.book.genre.title}}</p>
+                <p class="card-text"><a href="/genre/{{book.book.genre.id}}/">{{book.book.genre.title}}</a></p>
                 <p class="card-text">{{book.book.quantity}}</p>
+                <button onclick = "alterBookQuantity({{book.book.id}}, {{book.book.quantity}}, 'A') ">Return</button>
+                <button onclick = "alterBookQuantity({{book.book.id}}, {{book.book.quantity}}, 'S') ">Checkout</button>
+                <button onclick = "deleteABook({{book.book.id}})">delete</button>
 
             {% else %}
 
-                <h4 class="card-title">{{book.title}}</h4>
-                <p class="card-text">{{book.genre.title}}</p>
+                <h4 class="card-title"><a href= "/book/{{book.id}}/">{{book.book.title}}</a></h4>
+                <p class="card-text"><a href="/genre/{{book.genre.id}}/">{{book.genre.title}}</a></p>
                 <p class="card-text">{{book.quantity}}</p>
+                <button onclick = "alterBookQuantity({{book.id}}, {{book.quantity}}, 'A') ">Return</button>
+                <button onclick = "alterBookQuantity({{book.id}}, {{book.quantity}}, 'S') ">Checkout</button>
+                <button onclick = "deleteABook({{book.id}})">delete</button>
 
             {% endif %}
             
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+            
         </div>
     </div>
 
