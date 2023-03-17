@@ -6,8 +6,14 @@ def home(request):
     book_info = []
     books = Book.objects.prefetch_related('author')
     for book in books:
-        print(book.authors.all().values())
-    return render(request, 'pages/books.html')
+        book_info.append({
+        'book' : book,
+        'authors' : book.authors.all()
+        })
+        print(book_info)
+        
+        
+    return render(request, 'pages/books.html', {"books":book_info})
 
 def books_by_genre(request, id):
     pass
