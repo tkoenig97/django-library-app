@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import *
 
 # Create your views here.
@@ -13,13 +14,19 @@ def home(request):
         print(book_info)
         
         
-    return render(request, 'pages/books.html', {"books":book_info})
+    return render(request, 'pages/books.html', {"books":book_info, "nested":True})
 
 def books_by_genre(request, id):
     pass
 
 def books_by_author(request, id):
-    pass
+    author = Author.objects.get(id = id)
+    data = {
+        'books' : Author.objects.get(id = id).book.all(),
+        'nested': False
+    }
+    
+    return render(request, 'pages/books.html', data)
 
 def book(request, id):
     pass
