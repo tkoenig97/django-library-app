@@ -11,6 +11,7 @@ def home(request):
             'book': book,
             'authors': book.authors.all()
         })
+        
     return render(request, 'pages/books.html', {"books":book_info, 'nested':True})
 
 def books_by_genre(request, id):
@@ -20,6 +21,7 @@ def books_by_genre(request, id):
         'books': books,
         'nested': False
     }
+    
     return render(request, 'pages/books.html', data)
 
 def books_by_author(request, id):
@@ -35,4 +37,11 @@ def books_by_author(request, id):
 
 
 def book(request, id):
-    pass
+    if request.method == 'GET':
+        book = Book.objects.prefetch_related("authors").get(id = id)
+        book_info = [{
+            'book': book,
+            'authors': book.authors.all()
+        }]
+        
+    return render(request, 'pages/books.html', {"books":book_info, 'nested':True})
